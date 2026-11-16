@@ -11,9 +11,15 @@ export default defineConfig({
     vueDevTools(),
   ],
   
-   server: {
-        port: 3001,
+  server: {
+    port: 3001,
+    proxy: {
+        "/api": {
+            target: "http://localhost:3000/",
+            changeOrigin: true,
+        },
     },
+},
 
   resolve: {
     alias: {
